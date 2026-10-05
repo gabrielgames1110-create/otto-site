@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Otto Life Pet · Hospedagem e banho e tosa em Venâncio Aires</title>
+<meta name="description" content="Hospedagem, day care e banho e tosa para cães em Venâncio Aires – RS. R. Gen. Osório, 705 – Aviação. Agende pelo site ou pelo WhatsApp (51) 99186-6773.">
+<link rel="icon" href="assets/otto-logo.jpg">
+<meta name="theme-color" content="#ECCDB1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#ECCDB1;color:#3E1D14;font-family:"DM Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#4D311F;text-decoration:none}
+a:hover{color:#9F492F}
+button,input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #845639 !important;outline-offset:3px}
+::placeholder{color:#926D4F;opacity:1}
+</style>
+</helmet>
+
+<header data-screen-label="Header" style="position:sticky;top:0;z-index:30;background:#ECCDB1;border-bottom:1px solid rgba(108,71,44,0.18)">
+  <div style="max-width:1200px;margin:0 auto;padding:10px clamp(20px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a ref="{{ headerLogoRef }}" href="#topo" aria-label="Otto Life Pet, voltar ao início" style="display:flex;flex:none;transition:opacity 220ms ease">
+      <img src="assets/otto-logo.jpg" alt="Otto Life Pet" style="width:56px;height:56px;border-radius:50%;object-fit:cover;display:block">
+    </a>
+    <sc-if value="{{ wideNav }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Principal" style="display:flex;align-items:center;gap:clamp(18px,2.6vw,34px);font-size:15px;font-weight:500">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#espaco">Espaço</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:8px;flex:none">
+      <a href="#agendar" onClick="{{ closeMenu }}" style="min-height:44px;padding:0 22px;border-radius:999px;background:#4D311F;color:#F8E6D0;font-size:14px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#3E1D14;color:#F8E6D0">Agendar</a>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuExpanded }}" aria-controls="menu-mobile" style="min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #4D311F;background:transparent;color:#4D311F;font-size:14px;font-weight:600;cursor:pointer">{{ menuLabel }}</button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav id="menu-mobile" aria-label="Menu" style="border-top:1px solid rgba(108,71,44,0.18);padding:4px clamp(20px,4vw,40px) 16px;display:flex;flex-direction:column">
+      <a href="#sobre" onClick="{{ closeMenu }}" style="min-height:56px;display:flex;align-items:center;font-family:'DM Serif Display',Georgia,serif;font-size:24px;border-bottom:1px solid rgba(108,71,44,0.14)">Sobre</a>
+      <a href="#servicos" onClick="{{ closeMenu }}" style="min-height:56px;display:flex;align-items:center;font-family:'DM Serif Display',Georgia,serif;font-size:24px;border-bottom:1px solid rgba(108,71,44,0.14)">Serviços</a>
+      <a href="#espaco" onClick="{{ closeMenu }}" style="min-height:56px;display:flex;align-items:center;font-family:'DM Serif Display',Georgia,serif;font-size:24px;border-bottom:1px solid rgba(108,71,44,0.14)">Espaço</a>
+      <a href="#duvidas" onClick="{{ closeMenu }}" style="min-height:56px;display:flex;align-items:center;font-family:'DM Serif Display',Georgia,serif;font-size:24px;border-bottom:1px solid rgba(108,71,44,0.14)">Dúvidas</a>
+      <a href="#contato" onClick="{{ closeMenu }}" style="min-height:56px;display:flex;align-items:center;font-family:'DM Serif Display',Georgia,serif;font-size:24px">Contato</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main id="topo">
+<section ref="{{ heroRef }}" data-screen-label="Hero" style="position:relative;height:165svh">
+  <div ref="{{ stageRef }}" style="position:sticky;top:76px;height:calc(100svh - 76px);overflow:hidden;background:radial-gradient(62% 58% at 50% 36%, #F8E6D0 0%, rgba(248,230,208,0) 72%)">
+    <iframe ref="{{ logoRef }}" onLoad="{{ syncHero }}" src="logo-3d-plaquinha.html" title="Plaquinha de coleira com o logo da Otto Life Pet em 3D" aria-hidden="true" tabindex="-1" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none;background:transparent"></iframe>
+    <div ref="{{ heroTextRef }}" style="position:absolute;left:0;right:0;bottom:clamp(24px,7svh,72px);display:flex;flex-direction:column;align-items:center;gap:18px;padding:0 clamp(20px,4vw,40px);text-align:center">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C;text-wrap:balance">HOSPEDAGEM · BANHO E TOSA · VENÂNCIO AIRES</span>
+      <h1 style="margin:0;max-width:760px;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(32px,4.4vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap">Otto Life Pet. </span>Um lugar onde seu pet se sente <em style="color:#B95738">em casa.</em></h1>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center">
+        <a href="#agendar" style="min-height:52px;padding:0 28px;border-radius:999px;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#B95738;color:#FFFFFF">Agendar atendimento</a>
+        <a href="#servicos" style="min-height:52px;padding:0 16px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;color:#4D311F;text-decoration:underline;text-underline-offset:4px">Conhecer os serviços</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" data-screen-label="Sobre" style="background:#F8E6D0;scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(48px,6vw,96px);align-items:center">
+    <figure style="margin:0;display:flex;flex-direction:column;gap:14px;width:min(100%,460px);justify-self:center">
+      <div style="aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#ECCDB1">
+        <image-slot id="inst-sobre-otto" src="assets/fotos/sobre-otto.jpg" shape="rect" placeholder="Foto: o Otto (4:5)"></image-slot>
+      </div>
+      <figcaption style="font-size:14px;color:#845639">O Otto, que dá nome à casa.</figcaption>
+    </figure>
+    <div style="display:flex;flex-direction:column;gap:28px;max-width:560px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#845639">SOBRE A OTTO</span>
+        <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance">Tudo começou com o Otto.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;font-size:17px;line-height:1.6;color:#6C472C">
+        <p style="margin:0;text-wrap:pretty">O Otto é o dachshund que inspirou o nome e o logo da casa. Foi procurando um lugar de confiança para ele que percebemos o quanto Venâncio Aires precisava de um espaço pensado no bem-estar do pet e na tranquilidade de quem cuida dele.</p>
+        <p style="margin:0;text-wrap:pretty">Hoje a Otto Life Pet oferece dois serviços, feitos com calma e atenção: hospedagem e banho e tosa. Cada animal é recebido pelo nome, com a rotina e as manias que traz de casa.</p>
+      </div>
+      <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:24px">
+        <div style="border-top:1.5px solid #4D311F;padding-top:16px;display:flex;flex-direction:column;gap:6px">
+          <dt style="font-family:'DM Serif Display',Georgia,serif;font-size:21px;line-height:1.15;color:#3E1D14">Atenção individual</dt>
+          <dd style="margin:0;font-size:14px;line-height:1.5;color:#6C472C">Grupos pequenos e alguém da equipe sempre por perto.</dd>
+        </div>
+        <div style="border-top:1.5px solid #4D311F;padding-top:16px;display:flex;flex-direction:column;gap:6px">
+          <dt style="font-family:'DM Serif Display',Georgia,serif;font-size:21px;line-height:1.15;color:#3E1D14">Ambiente seguro</dt>
+          <dd style="margin:0;font-size:14px;line-height:1.5;color:#6C472C">Áreas separadas por porte, higienizadas todos os dias.</dd>
+        </div>
+        <div style="border-top:1.5px solid #4D311F;padding-top:16px;display:flex;flex-direction:column;gap:6px">
+          <dt style="font-family:'DM Serif Display',Georgia,serif;font-size:21px;line-height:1.15;color:#3E1D14">Notícias frequentes</dt>
+          <dd style="margin:0;font-size:14px;line-height:1.5;color:#6C472C">Fotos e vídeos pelo WhatsApp durante toda a estadia.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" data-screen-label="Serviços" style="scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:clamp(56px,7vw,104px)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">SERVIÇOS</span>
+        <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance">Dois serviços, o mesmo cuidado.</h2>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:16px;line-height:1.55;color:#6C472C;text-wrap:pretty">Valores sob consulta: variam conforme porte, pelagem e período. Respondemos cada pedido com o orçamento.</p>
+    </div>
+
+    <article aria-labelledby="t-hosp" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,88px);align-items:center">
+      <div style="justify-self:center;width:min(100%,480px);aspect-ratio:4/5;border-radius:999px 999px 28px 28px;overflow:hidden;background:#D9B593">
+        <image-slot id="inst-serv-hosp" src="assets/fotos/hero-pet.jpg" shape="rect" placeholder="Foto: hospedagem (4:5)"></image-slot>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:26px;max-width:520px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h3 id="t-hosp" style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(34px,3.6vw,46px);line-height:1;letter-spacing:-0.02em;color:#3E1D14">Hospedagem</h3>
+          <p style="margin:0;font-size:17px;line-height:1.6;color:#6C472C;text-wrap:pretty">Para quando você precisa viajar ou passar o dia fora. Seu pet fica em um ambiente tranquilo, com companhia, brincadeiras e descanso na hora certa.</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">Day care</span>
+          <span style="padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">Pernoite</span>
+          <span style="padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">Estadia longa</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">INCLUSO EM TODAS AS ESTADIAS</span>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Acomodação individual, com caminha e água fresca</span></li>
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Passeios e brincadeiras supervisionadas</span></li>
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Refeições nos horários de casa, com a ração do seu pet</span></li>
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);border-bottom:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Fotos e vídeos diários pelo WhatsApp</span></li>
+          </ul>
+        </div>
+        <a href="#agendar" onClick="{{ bookHosp }}" style="align-self:flex-start;min-height:52px;padding:0 28px;border-radius:999px;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#B95738;color:#FFFFFF">Agendar hospedagem</a>
+      </div>
+    </article>
+
+    <article aria-labelledby="t-banho" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,88px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:26px;max-width:520px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h3 id="t-banho" style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(34px,3.6vw,46px);line-height:1;letter-spacing:-0.02em;color:#3E1D14">Banho e tosa</h3>
+          <p style="margin:0;font-size:17px;line-height:1.6;color:#6C472C;text-wrap:pretty">Atendimento com hora marcada e sem pressa, para que o banho seja tranquilo até para os mais ansiosos. Usamos produtos próprios para pets e respeitamos cada tipo de pelagem.</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">Banho</span>
+          <span style="padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">Tosa higiênica</span>
+          <span style="padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">Tosa na máquina</span>
+          <span style="padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">Tosa na tesoura</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">INCLUSO EM TODOS OS BANHOS</span>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Shampoo e condicionador adequados à pelagem</span></li>
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Secagem com soprador de baixo ruído</span></li>
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Corte de unhas e limpeza de ouvidos</span></li>
+            <li style="display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(108,71,44,0.22);border-bottom:1px solid rgba(108,71,44,0.22);font-size:15px;line-height:1.45;color:#4D311F"><span aria-hidden="true" style="width:7px;height:7px;margin-top:7px;border-radius:50%;background:#D16A46;flex:none"></span><span>Escovação e desembaraço dos pelos</span></li>
+          </ul>
+        </div>
+        <a href="#agendar" onClick="{{ bookBanho }}" style="align-self:flex-start;min-height:52px;padding:0 28px;border-radius:999px;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#B95738;color:#FFFFFF">Agendar banho e tosa</a>
+      </div>
+      <div style="justify-self:center;width:min(100%,480px);aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#D9B593">
+        <image-slot id="inst-serv-banho" src="assets/fotos/servico-banho.jpg" shape="rect" placeholder="Foto: banho e tosa (4:5)"></image-slot>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="como-funciona" data-screen-label="Como funciona" style="background:#4D311F;scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#F3C294">COMO FUNCIONA</span>
+        <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#F8E6D0;text-wrap:balance">Do pedido ao reencontro.</h2>
+      </div>
+      <div role="tablist" aria-label="Escolha o serviço" style="display:flex;gap:4px;padding:5px;border-radius:999px;background:#6C472C">
+        <button type="button" role="tab" aria-selected="{{ seg.hosp.sel }}" onClick="{{ seg.hosp.select }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:0;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;background:{{ seg.hosp.bg }};color:{{ seg.hosp.fg }}">Hospedagem</button>
+        <button type="button" role="tab" aria-selected="{{ seg.banho.sel }}" onClick="{{ seg.banho.select }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:0;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;background:{{ seg.banho.bg }};color:{{ seg.banho.fg }}">Banho e tosa</button>
+      </div>
+    </div>
+    <sc-if value="{{ flowHosp }}" hint-placeholder-val="{{ true }}">
+      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px">
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">01</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Envie o pedido</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">Escolha as datas de entrada e saída no formulário. Respondemos pelo WhatsApp com disponibilidade e valores.</span>
+        </li>
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">02</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Visita de adaptação</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">Antes da primeira estadia, seu pet passa algumas horas com a gente para conhecer o espaço e a equipe.</span>
+        </li>
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">03</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Check-in</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">Traga a ração, a carteira de vacinação e, se quiser, um brinquedo ou cobertor com cheiro de casa.</span>
+        </li>
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">04</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Notícias todos os dias</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">Durante a estadia você recebe fotos e vídeos. Na saída, contamos como foram os dias.</span>
+        </li>
+      </ol>
+      <a href="#agendar" onClick="{{ bookHosp }}" style="align-self:flex-start;min-height:52px;padding:0 28px;border-radius:999px;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#B95738;color:#FFFFFF">Agendar hospedagem</a>
+    </sc-if>
+    <sc-if value="{{ flowBanho }}" hint-placeholder-val="{{ false }}">
+      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px">
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">01</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Escolha dia e turno</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">No formulário, indique o serviço, a data e o turno de preferência. Confirmamos o horário pelo WhatsApp.</span>
+        </li>
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">02</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Conte sobre o pet</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">Porte, tipo de pelo, sensibilidades e o corte que você quer. Assim preparamos tudo antes da chegada.</span>
+        </li>
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">03</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Atendimento sem pressa</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">A mesma pessoa acompanha seu pet do começo ao fim, com pausas sempre que ele precisar.</span>
+        </li>
+        <li style="border-top:1.5px solid rgba(248,230,208,0.3);padding-top:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1;color:#F3C294">04</span>
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.15;color:#F8E6D0">Pronto para buscar</span>
+          <span style="font-size:15px;line-height:1.55;color:#ECCDB1">Avisamos pelo WhatsApp quando estiver tudo pronto, com uma foto do resultado.</span>
+        </li>
+      </ol>
+      <a href="#agendar" onClick="{{ bookBanho }}" style="align-self:flex-start;min-height:52px;padding:0 28px;border-radius:999px;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#B95738;color:#FFFFFF">Agendar banho e tosa</a>
+    </sc-if>
+  </div>
+</section>
+
+<section id="espaco" data-screen-label="Nosso espaço" style="background:#F8E6D0;scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#845639">NOSSO ESPAÇO</span>
+        <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance">Um espaço pensado para eles.</h2>
+      </div>
+      <p style="margin:0;max-width:400px;font-size:16px;line-height:1.55;color:#6C472C;text-wrap:pretty">Ambientes ventilados, higienizados todos os dias e separados por porte. Quer conhecer antes? <a href="https://wa.me/5551991866773?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20para%20conhecer%20o%20espa%C3%A7o." target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;text-underline-offset:3px">Agende uma visita pelo WhatsApp</a>.</p>
+    </div>
+    <div style="columns:3 160px;column-gap:20px">
+      <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
+        <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-recepcao" src="assets/fotos/espaco-recepcao.jpg" shape="rect" placeholder="Foto: recepção"></image-slot></div>
+        <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Recepção</figcaption>
+      </figure>
+      <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
+        <div style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-brincadeiras" src="assets/fotos/espaco-brincadeiras.jpg" shape="rect" placeholder="Foto: área de brincadeiras"></image-slot></div>
+        <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Área de brincadeiras</figcaption>
+      </figure>
+      <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
+        <div style="aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-acomodacoes" src="assets/fotos/espaco-acomodacoes.jpg" shape="rect" placeholder="Foto: acomodações"></image-slot></div>
+        <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Acomodações da hospedagem</figcaption>
+      </figure>
+      <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
+        <div style="aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-banho" src="assets/fotos/espaco-banho.jpg" shape="rect" placeholder="Foto: sala de banho e tosa"></image-slot></div>
+        <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Sala de banho e tosa</figcaption>
+      </figure>
+      <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
+        <div style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-externa" src="assets/fotos/espaco-externa.jpg" shape="rect" placeholder="Foto: área externa"></image-slot></div>
+        <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Área externa</figcaption>
+      </figure>
+      <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
+        <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-descanso" src="assets/fotos/espaco-descanso.jpg" shape="rect" placeholder="Foto: cantinho do descanso"></image-slot></div>
+        <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Cantinho do descanso</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="depoimentos" data-screen-label="Depoimentos" style="scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">DEPOIMENTOS</span>
+      <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance">Quem conhece, volta.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,4vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ tutors }}" as="u" hint-placeholder-count="3">
+          <button type="button" onClick="{{ u.select }}" aria-pressed="{{ u.pressed }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:16px;padding:10px 14px 10px 10px;border-radius:20px;background:{{ u.bg }};transition:background 180ms ease">
+            <span style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex:none;background:#D9B593;display:block">
+              <image-slot id="inst-tutor-{{ u.id }}" src="{{ u.avatar }}" shape="circle" placeholder="Foto"></image-slot>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.1;color:#3E1D14">{{ u.dog }}</span>
+              <span style="font-size:14px;color:#6C472C">{{ u.meta }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="position:relative;justify-self:center;width:min(100%,380px);aspect-ratio:4/5;border-radius:999px 999px 28px 28px;overflow:hidden;background:#D9B593">
+        <sc-for list="{{ tutors }}" as="u" hint-placeholder-count="1">
+          <sc-if value="{{ u.active }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0">
+              <image-slot id="inst-dog-{{ u.id }}" src="{{ u.photo }}" shape="rect" placeholder="Foto: {{ u.dog }} (4:5)"></image-slot>
+            </div>
+          </sc-if>
+        </sc-for>
+      </div>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:24px">
+        <span style="align-self:flex-start;padding:7px 14px;border-radius:999px;background:#F8E6D0;color:#4D311F;font-size:13px;font-weight:600">{{ current.service }}</span>
+        <blockquote style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(24px,2.4vw,32px);line-height:1.2;color:#3E1D14;text-wrap:pretty">“{{ current.quote }}”</blockquote>
+        <figcaption style="display:flex;flex-direction:column;gap:2px;font-size:15px">
+          <span style="font-weight:600;color:#3E1D14">{{ current.tutor }}</span>
+          <span style="color:#6C472C">{{ current.role }} de {{ current.dog }}</span>
+        </figcaption>
+        <div style="display:flex;align-items:center;gap:12px">
+          <button type="button" onClick="{{ prevT }}" aria-label="Depoimento anterior" style="width:48px;height:48px;border-radius:50%;border:1.5px solid #4D311F;background:transparent;color:#4D311F;font-size:18px;cursor:pointer" style-hover="background:#F8E6D0">←</button>
+          <button type="button" onClick="{{ nextT }}" aria-label="Próximo depoimento" style="width:48px;height:48px;border-radius:50%;border:0;background:#4D311F;color:#F8E6D0;font-size:18px;cursor:pointer" style-hover="background:#3E1D14">→</button>
+          <span style="margin-left:8px;font-size:14px;font-weight:600;color:#6C472C">{{ tCounter }}</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas" data-screen-label="Dúvidas" style="background:#F8E6D0;scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:flex;flex-wrap:wrap;gap:40px clamp(48px,6vw,96px);align-items:flex-start">
+    <div style="flex:1 1 300px;max-width:420px;display:flex;flex-direction:column;gap:16px">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#845639">DÚVIDAS</span>
+      <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance">Perguntas frequentes</h2>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:#6C472C">Não encontrou o que procurava? <a href="https://wa.me/5551991866773" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;text-underline-offset:3px">Fale com a gente pelo WhatsApp</a>.</p>
+    </div>
+    <div style="flex:2 1 460px;display:flex;flex-direction:column;border-bottom:1px solid rgba(108,71,44,0.25)">
+      <div style="border-top:1px solid rgba(108,71,44,0.25)">
+        <h3 style="margin:0"><button type="button" onClick="{{ faqT.q1 }}" aria-expanded="{{ faqExp.q1 }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2vw,24px);line-height:1.2;color:#3E1D14" style-hover="color:#9F492F"><span>Quais são os valores?</span><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid #4D311F;color:#4D311F;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:20px;line-height:1">{{ faqIcon.q1 }}</span></button></h3>
+        <sc-if value="{{ faqOpen.q1 }}" hint-placeholder-val="{{ true }}"><p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:#6C472C;text-wrap:pretty">Os valores dependem do porte, do tipo de pelagem e do período da hospedagem. Envie um pedido pelo formulário e respondemos com o orçamento pelo WhatsApp.</p></sc-if>
+      </div>
+      <div style="border-top:1px solid rgba(108,71,44,0.25)">
+        <h3 style="margin:0"><button type="button" onClick="{{ faqT.q2 }}" aria-expanded="{{ faqExp.q2 }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2vw,24px);line-height:1.2;color:#3E1D14" style-hover="color:#9F492F"><span>Quais vacinas são exigidas para a hospedagem?</span><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid #4D311F;color:#4D311F;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:20px;line-height:1">{{ faqIcon.q2 }}</span></button></h3>
+        <sc-if value="{{ faqOpen.q2 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:#6C472C;text-wrap:pretty">Pedimos a carteira de vacinação em dia (polivalente V8 ou V10, antirrábica e gripe canina), além de vermífugo e antipulgas recentes. A carteira é conferida no check-in.</p></sc-if>
+      </div>
+      <div style="border-top:1px solid rgba(108,71,44,0.25)">
+        <h3 style="margin:0"><button type="button" onClick="{{ faqT.q3 }}" aria-expanded="{{ faqExp.q3 }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2vw,24px);line-height:1.2;color:#3E1D14" style-hover="color:#9F492F"><span>Posso levar a ração e os pertences do meu pet?</span><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid #4D311F;color:#4D311F;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:20px;line-height:1">{{ faqIcon.q3 }}</span></button></h3>
+        <sc-if value="{{ faqOpen.q3 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:#6C472C;text-wrap:pretty">Pode, e recomendamos. Manter a mesma alimentação evita desconfortos, e uma caminha, um brinquedo ou uma peça de roupa com cheiro de casa ajuda na adaptação.</p></sc-if>
+      </div>
+      <div style="border-top:1px solid rgba(108,71,44,0.25)">
+        <h3 style="margin:0"><button type="button" onClick="{{ faqT.q4 }}" aria-expanded="{{ faqExp.q4 }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2vw,24px);line-height:1.2;color:#3E1D14" style-hover="color:#9F492F"><span>Como recebo notícias durante a estadia?</span><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid #4D311F;color:#4D311F;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:20px;line-height:1">{{ faqIcon.q4 }}</span></button></h3>
+        <sc-if value="{{ faqOpen.q4 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:#6C472C;text-wrap:pretty">Enviamos fotos e vídeos pelo WhatsApp todos os dias. Você também pode pedir notícias a qualquer momento.</p></sc-if>
+      </div>
+      <div style="border-top:1px solid rgba(108,71,44,0.25)">
+        <h3 style="margin:0"><button type="button" onClick="{{ faqT.q5 }}" aria-expanded="{{ faqExp.q5 }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2vw,24px);line-height:1.2;color:#3E1D14" style-hover="color:#9F492F"><span>Quanto tempo leva o banho e tosa?</span><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid #4D311F;color:#4D311F;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:20px;line-height:1">{{ faqIcon.q5 }}</span></button></h3>
+        <sc-if value="{{ faqOpen.q5 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:#6C472C;text-wrap:pretty">Entre 1h30 e 3h, conforme o porte, a pelagem e o serviço escolhido. Avisamos pelo WhatsApp quando estiver pronto para buscar.</p></sc-if>
+      </div>
+      <div style="border-top:1px solid rgba(108,71,44,0.25)">
+        <h3 style="margin:0"><button type="button" onClick="{{ faqT.q6 }}" aria-expanded="{{ faqExp.q6 }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2vw,24px);line-height:1.2;color:#3E1D14" style-hover="color:#9F492F"><span>Vocês atendem pets de todos os portes e idades?</span><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid #4D311F;color:#4D311F;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:20px;line-height:1">{{ faqIcon.q6 }}</span></button></h3>
+        <sc-if value="{{ faqOpen.q6 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:#6C472C;text-wrap:pretty">Sim, de filhotes a idosos, de todos os portes. Se o seu pet tem alguma condição especial, conte no pedido para nos prepararmos.</p></sc-if>
+      </div>
+      <div style="border-top:1px solid rgba(108,71,44,0.25)">
+        <h3 style="margin:0"><button type="button" onClick="{{ faqT.q7 }}" aria-expanded="{{ faqExp.q7 }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2vw,24px);line-height:1.2;color:#3E1D14" style-hover="color:#9F492F"><span>Com quanta antecedência devo agendar?</span><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid #4D311F;color:#4D311F;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:20px;line-height:1">{{ faqIcon.q7 }}</span></button></h3>
+        <sc-if value="{{ faqOpen.q7 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:#6C472C;text-wrap:pretty">Para banho e tosa, de dois a três dias. Para hospedagem em feriados e férias, o quanto antes, porque as vagas são limitadas.</p></sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section ref="{{ agendarRef }}" id="agendar" data-screen-label="Agendamento" style="background:#4D311F;scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:flex;flex-wrap:wrap;gap:48px clamp(48px,6vw,96px);align-items:flex-start">
+    <div style="flex:1 1 300px;max-width:440px;display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#F3C294">AGENDAMENTO</span>
+      <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#F8E6D0;text-wrap:balance">Agende um atendimento.</h2>
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#ECCDB1;text-wrap:pretty">Preencha o pedido e respondemos pelo WhatsApp com disponibilidade e valores, normalmente no mesmo dia.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px;padding-top:20px;border-top:1px solid rgba(248,230,208,0.25)">
+        <span style="font-size:14px;color:#ECCDB1">Prefere conversar?</span>
+        <a href="https://wa.me/5551991866773?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20agendamento." target="_blank" rel="noopener" style="align-self:flex-start;max-width:100%;display:flex;align-items:center;gap:14px;padding:10px 24px 10px 10px;border-radius:999px;background:#F8E6D0;color:#3E1D14;box-shadow:0 12px 32px rgba(30,14,8,0.22);transition:background 180ms ease,transform 180ms ease" style-hover="background:#FFFFFF;color:#3E1D14;transform:translateY(-2px)">
+          <span style="width:48px;height:48px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;flex:none">
+            <img src="assets/whatsapp-glyph.svg" alt="WhatsApp" width="26" height="26" style="display:block;width:26px;height:26px">
+          </span>
+          <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+            <span style="font-size:16px;font-weight:600;line-height:1.25">Clique aqui para conversarmos</span>
+            <span style="font-size:14px;line-height:1.3;color:#6C472C;white-space:nowrap">(51) 99186-6773</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div ref="{{ cardRef }}" style="flex:1.5 1 440px;min-width:0;background:#F8E6D0;border-radius:28px;padding:clamp(24px,4vw,44px);box-shadow:0 24px 60px rgba(30,14,8,0.28)">
+      <sc-if value="{{ formVisible }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onFormSubmit }}" novalidate="" aria-label="Pedido de agendamento" style="display:flex;flex-direction:column;gap:32px">
+          <sc-if value="{{ stepsMode }}" hint-placeholder-val="{{ true }}">
+            <ol aria-label="Etapas" style="list-style:none;margin:0;padding:0;display:flex;gap:10px">
+              <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+                <li style="flex:1 1 0;min-width:0">
+                  <button type="button" onClick="{{ st.go }}" disabled="{{ st.locked }}" aria-current="{{ st.current }}" style="all:unset;box-sizing:border-box;width:100%;display:flex;flex-direction:column;gap:8px;cursor:{{ st.cursor }}">
+                    <span style="display:block;height:4px;border-radius:999px;background:{{ st.bar }}"></span>
+                    <span style="font-size:13px;font-weight:600;color:{{ st.fg }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ st.num }}. {{ st.label }}</span>
+                  </button>
+                </li>
+              </sc-for>
+            </ol>
+          </sc-if>
+
+          <sc-if value="{{ showS1 }}" hint-placeholder-val="{{ true }}">
+            <div role="group" aria-labelledby="g-servico" style="display:flex;flex-direction:column;gap:20px">
+              <h3 id="g-servico" style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.1;color:#3E1D14">Serviço e datas</h3>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <span id="l-servico" style="font-size:14px;font-weight:600;color:#3E1D14">Qual serviço?</span>
+                <div role="radiogroup" aria-labelledby="l-servico" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px">
+                  <button type="button" role="radio" aria-checked="{{ svc.hosp.checked }}" onClick="{{ svc.hosp.select }}" style="all:unset;cursor:pointer;box-sizing:border-box;display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:16px;border-width:1.5px;border-style:solid;border-color:{{ svc.hosp.bd }};background:{{ svc.hosp.bg }}">
+                    <span style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.1;color:#3E1D14">Hospedagem</span>
+                    <span style="font-size:13px;line-height:1.4;color:#6C472C">Day care, pernoite ou estadia longa</span>
+                  </button>
+                  <button type="button" role="radio" aria-checked="{{ svc.banho.checked }}" onClick="{{ svc.banho.select }}" style="all:unset;cursor:pointer;box-sizing:border-box;display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:16px;border-width:1.5px;border-style:solid;border-color:{{ svc.banho.bd }};background:{{ svc.banho.bg }}">
+                    <span style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.1;color:#3E1D14">Banho e tosa</span>
+                    <span style="font-size:13px;line-height:1.4;color:#6C472C">Banho, tosa higiênica, na máquina ou na tesoura</span>
+                  </button>
+                </div>
+                <sc-if value="{{ has.service }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.service }}</span></sc-if>
+              </div>
+              <sc-if value="{{ isHosp }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px">
+                  <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                    <label for="f-in" style="font-size:14px;font-weight:600;color:#3E1D14">Entrada</label>
+                    <input id="f-in" type="date" min="{{ today }}" value="{{ b.checkIn }}" onChange="{{ on.checkIn }}" aria-invalid="{{ inv.checkIn }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                    <sc-if value="{{ has.checkIn }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.checkIn }}</span></sc-if>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                    <label for="f-out" style="font-size:14px;font-weight:600;color:#3E1D14">Saída</label>
+                    <input id="f-out" type="date" min="{{ minOut }}" value="{{ b.checkOut }}" onChange="{{ on.checkOut }}" aria-invalid="{{ inv.checkOut }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                    <sc-if value="{{ has.checkOut }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.checkOut }}</span></sc-if>
+                  </div>
+                </div>
+                <sc-if value="{{ hasNights }}" hint-placeholder-val="{{ false }}">
+                  <span style="align-self:flex-start;padding:10px 14px;border-radius:12px;background:#ECCDB1;font-size:14px;font-weight:600;color:#4D311F">{{ nightsLabel }}</span>
+                </sc-if>
+              </sc-if>
+              <sc-if value="{{ isBanho }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <span id="l-tipo" style="font-size:14px;font-weight:600;color:#3E1D14">Serviço desejado</span>
+                  <div role="radiogroup" aria-labelledby="l-tipo" style="display:flex;gap:8px;flex-wrap:wrap">
+                    <sc-for list="{{ banhoOpts }}" as="o" hint-placeholder-count="4">
+                      <button type="button" role="radio" aria-checked="{{ o.checked }}" onClick="{{ o.select }}" style="min-height:44px;padding:0 16px;border-radius:999px;border-width:1.5px;border-style:solid;border-color:{{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">{{ o.label }}</button>
+                    </sc-for>
+                  </div>
+                  <sc-if value="{{ has.banhoTipo }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.banhoTipo }}</span></sc-if>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px">
+                  <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                    <label for="f-data" style="font-size:14px;font-weight:600;color:#3E1D14">Data</label>
+                    <input id="f-data" type="date" min="{{ today }}" value="{{ b.date }}" onChange="{{ on.date }}" aria-invalid="{{ inv.date }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                    <sc-if value="{{ has.date }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.date }}</span></sc-if>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                    <span id="l-turno" style="font-size:14px;font-weight:600;color:#3E1D14">Turno</span>
+                    <div role="radiogroup" aria-labelledby="l-turno" style="display:flex;gap:8px;flex-wrap:wrap">
+                      <sc-for list="{{ turnoOpts }}" as="o" hint-placeholder-count="2">
+                        <button type="button" role="radio" aria-checked="{{ o.checked }}" onClick="{{ o.select }}" style="min-height:48px;padding:0 20px;border-radius:999px;border-width:1.5px;border-style:solid;border-color:{{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">{{ o.label }}</button>
+                      </sc-for>
+                    </div>
+                    <sc-if value="{{ has.turno }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.turno }}</span></sc-if>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showS2 }}" hint-placeholder-val="{{ false }}">
+            <div role="group" aria-labelledby="g-pet" style="display:flex;flex-direction:column;gap:20px">
+              <h3 id="g-pet" style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.1;color:#3E1D14">Sobre o pet</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+                <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                  <label for="f-pet" style="font-size:14px;font-weight:600;color:#3E1D14">Nome do pet</label>
+                  <input id="f-pet" type="text" autocomplete="off" placeholder="Ex.: Paçoca" value="{{ b.petName }}" onChange="{{ on.petName }}" aria-invalid="{{ inv.petName }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                  <sc-if value="{{ has.petName }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.petName }}</span></sc-if>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                  <label for="f-raca" style="font-size:14px;font-weight:600;color:#3E1D14">Raça <span style="font-weight:400;color:#845639">(opcional)</span></label>
+                  <input id="f-raca" type="text" autocomplete="off" placeholder="Ex.: SRD, dachshund" value="{{ b.raca }}" onChange="{{ on.raca }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <span id="l-porte" style="font-size:14px;font-weight:600;color:#3E1D14">Porte</span>
+                <div role="radiogroup" aria-labelledby="l-porte" style="display:flex;gap:8px;flex-wrap:wrap">
+                  <sc-for list="{{ porteOpts }}" as="o" hint-placeholder-count="4">
+                    <button type="button" role="radio" aria-checked="{{ o.checked }}" onClick="{{ o.select }}" style="min-height:44px;padding:0 16px;border-radius:999px;border-width:1.5px;border-style:solid;border-color:{{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">{{ o.label }}</button>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ has.porte }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.porte }}</span></sc-if>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <label for="f-obs" style="font-size:14px;font-weight:600;color:#3E1D14">Observações <span style="font-weight:400;color:#845639">(opcional)</span></label>
+                <textarea id="f-obs" rows="3" placeholder="Alergias, medicamentos, medos, manias…" value="{{ b.obs }}" onChange="{{ on.obs }}" style="width:100%;min-height:96px;padding:12px 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px;line-height:1.5;resize:vertical"></textarea>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showS3 }}" hint-placeholder-val="{{ false }}">
+            <div role="group" aria-labelledby="g-dados" style="display:flex;flex-direction:column;gap:20px">
+              <h3 id="g-dados" style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.1;color:#3E1D14">Seus dados</h3>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <label for="f-nome" style="font-size:14px;font-weight:600;color:#3E1D14">Seu nome</label>
+                <input id="f-nome" type="text" autocomplete="name" value="{{ b.tutor }}" onChange="{{ on.tutor }}" aria-invalid="{{ inv.tutor }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                <sc-if value="{{ has.tutor }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.tutor }}</span></sc-if>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+                <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                  <label for="f-tel" style="font-size:14px;font-weight:600;color:#3E1D14">WhatsApp</label>
+                  <input id="f-tel" type="tel" inputMode="numeric" autocomplete="tel" placeholder="(51) 99999-9999" value="{{ b.phone }}" onChange="{{ on.phone }}" aria-invalid="{{ inv.phone }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                  <sc-if value="{{ has.phone }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.phone }}</span></sc-if>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                  <label for="f-email" style="font-size:14px;font-weight:600;color:#3E1D14">E-mail <span style="font-weight:400;color:#845639">(opcional)</span></label>
+                  <input id="f-email" type="email" autocomplete="email" placeholder="nome@email.com" value="{{ b.email }}" onChange="{{ on.email }}" aria-invalid="{{ inv.email }}" style="width:100%;min-height:48px;padding:0 16px;border-radius:14px;border:1px solid #C8B5A2;background:#FFFFFF;color:#3E1D14;font-size:16px">
+                  <sc-if value="{{ has.email }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:13px;font-weight:500;color:#9F3F32">{{ err.email }}</span></sc-if>
+                </div>
+              </div>
+              <sc-if value="{{ showSummary }}" hint-placeholder-val="{{ false }}">
+                <div style="border-radius:16px;background:#ECCDB1;padding:16px 18px;display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">CONFIRA O PEDIDO</span>
+                  <sc-for list="{{ summary }}" as="r" hint-placeholder-count="3">
+                    <div style="display:grid;grid-template-columns:minmax(0,100px) minmax(0,1fr);gap:12px;font-size:14px;line-height:1.45">
+                      <span style="font-weight:600;color:#6C472C">{{ r.k }}</span>
+                      <span style="color:#3E1D14">{{ r.v }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(108,71,44,0.18)">
+            <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ back }}" style="min-height:48px;padding:0 20px;border-radius:999px;border:1.5px solid #4D311F;background:transparent;color:#4D311F;font-size:15px;font-weight:600;cursor:pointer" style-hover="background:#ECCDB1">← Voltar</button>
+            </sc-if>
+            <sc-if value="{{ showStepHint }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:14px;color:#845639">Etapa 1 de 3</span>
+            </sc-if>
+            <sc-if value="{{ notLast }}" hint-placeholder-val="{{ true }}">
+              <button type="submit" style="margin-left:auto;min-height:52px;padding:0 28px;border-radius:999px;border:0;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;cursor:pointer;transition:background 180ms ease" style-hover="background:#B95738" style-active="background:#9F492F">Continuar</button>
+            </sc-if>
+            <sc-if value="{{ isLast }}" hint-placeholder-val="{{ false }}">
+              <button type="submit" style="margin-left:auto;min-height:52px;padding:0 28px;border-radius:999px;border:0;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;cursor:pointer;transition:background 180ms ease" style-hover="background:#B95738" style-active="background:#9F492F">Enviar pedido</button>
+            </sc-if>
+          </div>
+        </form>
+      </sc-if>
+
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;flex-direction:column;gap:24px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#845639">PEDIDO {{ protocol }}</span>
+            <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(30px,3.4vw,40px);line-height:1.05;color:#3E1D14">Pedido enviado. Obrigado!</h3>
+            <p style="margin:0;font-size:16px;line-height:1.55;color:#6C472C;text-wrap:pretty">Vamos conferir a disponibilidade e responder no WhatsApp {{ b.phone }} com a confirmação e os valores.</p>
+          </div>
+          <dl style="margin:0;display:flex;flex-direction:column;border-top:1px solid rgba(108,71,44,0.18)">
+            <sc-for list="{{ summaryAll }}" as="r" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid rgba(108,71,44,0.18)">
+                <dt style="font-size:13px;font-weight:600;color:#845639">{{ r.k }}</dt>
+                <dd style="margin:0;font-size:15px;line-height:1.45;color:#3E1D14">{{ r.v }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+            <a href="{{ waLink }}" target="_blank" rel="noopener" style="min-height:52px;padding:0 24px;border-radius:999px;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#B95738;color:#FFFFFF">Enviar também pelo WhatsApp</a>
+            <button type="button" onClick="{{ resetForm }}" style="min-height:52px;padding:0 16px;border:0;background:transparent;color:#4D311F;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px;cursor:pointer">Fazer outro pedido</button>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="contato" data-screen-label="Contato" style="scroll-margin-top:76px">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(40px,6vw,88px);align-items:stretch">
+    <div style="display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">CONTATO</span>
+        <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance">Venha nos visitar.</h2>
+      </div>
+      <dl style="margin:0;display:flex;flex-direction:column;border-bottom:1px solid rgba(108,71,44,0.25)">
+        <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 0;border-top:1px solid rgba(108,71,44,0.25)">
+          <dt style="flex:0 0 130px;padding-top:3px;font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">ENDEREÇO</dt>
+          <dd style="flex:1 1 220px;min-width:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.5;color:#3E1D14">
+            <span>R. Gen. Osório, 705 – Aviação<br>Venâncio Aires – RS, <span style="white-space:nowrap">95800-000</span></span>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=R.%20Gen.%20Os%C3%B3rio%2C%20705%20-%20Avia%C3%A7%C3%A3o%2C%20Ven%C3%A2ncio%20Aires%20-%20RS%2C%2095800-000" target="_blank" rel="noopener" style="align-self:flex-start;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:3px">Como chegar ↗</a>
+          </dd>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 0;border-top:1px solid rgba(108,71,44,0.25)">
+          <dt style="flex:0 0 130px;padding-top:3px;font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">WHATSAPP</dt>
+          <dd style="flex:1 1 220px;min-width:0;margin:0;display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;font-size:17px;line-height:1.5;color:#3E1D14">
+            <a href="https://wa.me/5551991866773" target="_blank" rel="noopener" style="color:#3E1D14;font-weight:600;white-space:nowrap" style-hover="color:#9F492F">(51) 99186-6773</a>
+            <a href="tel:+5551991866773" style="font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:3px">Ligar</a>
+          </dd>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 0;border-top:1px solid rgba(108,71,44,0.25)">
+          <dt style="flex:0 0 130px;padding-top:3px;font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">INSTAGRAM</dt>
+          <dd style="flex:1 1 220px;min-width:0;margin:0;font-size:17px;line-height:1.5"><a href="https://instagram.com/otto.life.pet" target="_blank" rel="noopener" style="color:#3E1D14;font-weight:600" style-hover="color:#9F492F">@otto.life.pet</a></dd>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 0;border-top:1px solid rgba(108,71,44,0.25)">
+          <dt style="flex:0 0 130px;padding-top:3px;font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">HORÁRIO</dt>
+          <dd style="flex:1 1 220px;min-width:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.5;color:#3E1D14">
+            <span>Segunda a sexta, das 8h às 18h<br>Sábado, das 8h às 12h</span>
+            <span style="font-size:14px;color:#6C472C">Entrada e saída da hospedagem com horário combinado.</span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+    <div style="position:relative;min-height:clamp(300px,60vw,440px);border-radius:28px;overflow:hidden;background:#F8E6D0;box-shadow:0 12px 32px rgba(62,29,20,0.12)">
+      <iframe src="mapa.html" title="Mapa com a localização da Otto Life Pet" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer data-screen-label="Rodapé" style="background:#3E1D14;color:#ECCDB1">
+  <div style="max-width:1200px;margin:0 auto;padding:56px clamp(20px,4vw,40px) 40px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:18px">
+        <img src="assets/otto-logo.jpg" alt="Otto Life Pet" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:block">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.1;color:#F8E6D0">Otto Life Pet</span>
+          <span style="font-size:14px;color:#ECCDB1">Hospedagem e banho e tosa em Venâncio Aires – RS</span>
+        </div>
+      </div>
+      <nav aria-label="Rodapé" style="display:flex;gap:24px;flex-wrap:wrap;font-size:14px;font-weight:500">
+        <a href="#sobre" style="color:#ECCDB1" style-hover="color:#F3C294">Sobre</a>
+        <a href="#servicos" style="color:#ECCDB1" style-hover="color:#F3C294">Serviços</a>
+        <a href="#agendar" style="color:#ECCDB1" style-hover="color:#F3C294">Agendar</a>
+        <a href="https://instagram.com/otto.life.pet" target="_blank" rel="noopener" style="color:#ECCDB1" style-hover="color:#F3C294">Instagram ↗</a>
+        <a href="https://wa.me/5551991866773" target="_blank" rel="noopener" style="color:#ECCDB1" style-hover="color:#F3C294">WhatsApp ↗</a>
+      </nav>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(236,205,177,0.2);font-size:13px;color:#C8B5A2">
+      <span>© 2026 Otto Life Pet · R. Gen. Osório, 705 – Aviação, Venâncio Aires – RS</span>
+      <a href="#topo" style="color:#ECCDB1" style-hover="color:#F3C294">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showWaBtn }}" hint-placeholder-val="{{ false }}">
+  <a href="https://wa.me/5551991866773" target="_blank" rel="noopener" aria-label="Fale com a Otto Life Pet no WhatsApp" style="position:fixed;right:20px;bottom:20px;z-index:40;min-height:52px;padding:0 22px;border-radius:999px;background:#3E1D14;color:#F8E6D0;font-size:15px;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 18px 50px rgba(62,29,20,0.28);transition:background 180ms ease" style-hover="background:#4D311F;color:#F8E6D0">Fale no WhatsApp</a>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;formLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Etapas&quot;,&quot;Página única&quot;],&quot;default&quot;:&quot;Etapas&quot;,&quot;tsType&quot;:&quot;'Etapas' | 'Página única'&quot;,&quot;section&quot;:&quot;Agendamento&quot;},&quot;showWhatsApp&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Interface&quot;},&quot;faqSingleOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Interface&quot;}}">
+class Component extends DCLogic {
+  EMPTY = { service: '', checkIn: '', checkOut: '', banhoTipo: '', date: '', turno: '', petName: '', porte: '', raca: '', obs: '', tutor: '', phone: '', email: '' };
+  state = { narrow: false, menuOpen: false, flow: 'hosp', faq: { q1: true }, tIdx: 0, b: { ...this.EMPTY }, step: 1, errors: {}, sent: false, protocol: '' };
+  cardRef = React.createRef();
+
+  tutorsData = [
+    { id: 'pacoca', photo: 'assets/fotos/dep-pacoca.jpg', avatar: 'assets/fotos/dep-pacoca-avatar.jpg', dog: 'Paçoca', meta: 'SRD · 4 anos', tutor: 'Marina Albuquerque', role: 'Tutora', service: 'Hospedagem',
+      quote: 'Viajei por dez dias e recebi fotos do Paçoca todas as manhãs. Quando voltei, ele estava calmo, limpinho e cheio de energia.' },
+    { id: 'bento', photo: 'assets/fotos/dep-bento.jpg', avatar: 'assets/fotos/dep-bento-avatar.jpg', dog: 'Bento', meta: 'Dachshund · 9 anos', tutor: 'Rafael Monteiro', role: 'Tutor', service: 'Banho e tosa',
+      quote: 'O Bento sempre teve medo do soprador. Na Otto fizeram tudo com calma e com pausas, e hoje ele entra na sala de banho abanando o rabo.' },
+    { id: 'mel', photo: 'assets/fotos/dep-mel.jpg', avatar: 'assets/fotos/dep-mel-avatar.jpg', dog: 'Mel', meta: 'Golden Retriever · 2 anos', tutor: 'Júlia Tavares', role: 'Tutora', service: 'Day care e banho',
+      quote: 'Deixo a Mel no day care duas vezes por semana e aproveito para marcar o banho no mesmo dia. Ela volta cansada, cheirosa e feliz.' }
+  ];
+  banhoOpts = ['Só banho', 'Banho + tosa higiênica', 'Banho + tosa na máquina', 'Banho + tosa na tesoura'];
+  turnoOpts = ['Manhã', 'Tarde'];
+  porteOpts = ['Mini · até 5 kg', 'Pequeno · 5 a 10 kg', 'Médio · 10 a 25 kg', 'Grande · acima de 25 kg'];
+
+  heroRef = React.createRef();
+  stageRef = React.createRef();
+  agendarRef = React.createRef();
+  logoRef = React.createRef();
+  heroTextRef = React.createRef();
+  headerLogoRef = React.createRef();
+
+  post(msg) { const f = this.logoRef.current; if (f && f.contentWindow) f.contentWindow.postMessage(msg, '*'); }
+  sendLayout = () => { const t = this.heroTextRef.current; if (t) this.post({ type: 'otto-layout', top: 12, bottom: t.offsetTop - 16 }); };
+  onHeroScroll = () => {
+    const hero = this.heroRef.current; if (!hero) return;
+    const r = hero.getBoundingClientRect(), vh = window.innerHeight;
+    const ag = this.agendarRef.current, ar = ag ? ag.getBoundingClientRect() : null;
+    const waOn = r.bottom < vh * 0.55 && !(ar && ar.top < vh - 80 && ar.bottom > 80);
+    if (waOn !== this.state.waOn) this.setState({ waOn });
+    const vis = r.bottom > 0;
+    if (vis !== this._vis) { this._vis = vis; this.post({ type: 'otto-visible', on: vis }); }
+    const st = this.stageRef.current;
+    const range = Math.max(1, r.height - (st ? st.offsetHeight : window.innerHeight - 76));
+    const p = Math.min(1, Math.max(0, (76 - r.top) / range));
+    if (p === this._p) return;
+    this._p = p;
+    this.post({ type: 'otto-scroll', p });
+    const t = this.heroTextRef.current; if (t) t.style.transform = 'translateY(' + (-p * 36).toFixed(1) + 'px)';
+    const hl = this.headerLogoRef.current; if (hl) hl.style.opacity = String(Math.min(1, Math.max(0, (p - 0.55) / 0.35)));
+  };
+  syncHero = () => { this._p = null; this._vis = null; this.onHeroScroll(); this.sendLayout(); };
+  onPointer = e => this.post({ type: 'otto-pointer', x: e.clientX / window.innerWidth * 2 - 1, y: e.clientY / window.innerHeight * 2 - 1 });
+
+  componentDidMount() {
+    if (!(window.CSS && CSS.supports('height', '100svh'))) {
+      const hr = this.heroRef.current, st = this.stageRef.current, tx = this.heroTextRef.current;
+      if (hr) hr.style.height = '165vh';
+      if (st) st.style.height = 'calc(100vh - 76px)';
+      if (tx) tx.style.bottom = 'clamp(24px,7vh,72px)';
+    }
+    this.onResize = () => {
+      const narrow = window.innerWidth < 900;
+      if (narrow !== this.state.narrow) this.setState({ narrow, menuOpen: false });
+      this.syncHero();
+    };
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('scroll', this.onHeroScroll, { passive: true });
+    window.addEventListener('pointermove', this.onPointer, { passive: true });
+    if (window.ResizeObserver && this.heroTextRef.current) {
+      this.ro = new ResizeObserver(this.sendLayout);
+      this.ro.observe(this.heroTextRef.current);
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('scroll', this.onHeroScroll);
+    window.removeEventListener('pointermove', this.onPointer);
+    if (this.ro) this.ro.disconnect();
+  }
+
+  single() { return (this.props.formLayout ?? 'Etapas') === 'Página única'; }
+  today() { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); }
+  fmtDate(v) {
+    if (!v) return '';
+    const [y, m, d] = v.split('-').map(Number);
+    return new Date(y, m - 1, d).toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit' });
+  }
+  nights(b) {
+    if (!b.checkIn || !b.checkOut || b.checkOut < b.checkIn) return null;
+    return Math.round((Date.parse(b.checkOut) - Date.parse(b.checkIn)) / 86400000);
+  }
+  nightsText(n) { return n === 0 ? 'Day care: entrada e saída no mesmo dia' : n === 1 ? '1 diária' : n + ' diárias'; }
+  maskPhone(v) {
+    const d = v.replace(/\D/g, '').slice(0, 11);
+    if (!d) return '';
+    if (d.length <= 2) return '(' + d;
+    const r = d.slice(2), split = r.length === 9 ? 5 : 4;
+    return '(' + d.slice(0, 2) + ') ' + (r.length <= split ? r : r.slice(0, split) + '-' + r.slice(split));
+  }
+
+  validate(step, b) {
+    const e = {}, t = this.today();
+    if (step === 1) {
+      if (!b.service) e.service = 'Escolha um serviço.';
+      if (b.service === 'hosp') {
+        if (!b.checkIn) e.checkIn = 'Informe a data de entrada.';
+        else if (b.checkIn < t) e.checkIn = 'A entrada não pode ser uma data passada.';
+        if (!b.checkOut) e.checkOut = 'Informe a data de saída.';
+        else if (b.checkIn && b.checkOut < b.checkIn) e.checkOut = 'A saída deve ser no mesmo dia da entrada ou depois.';
+      }
+      if (b.service === 'banho') {
+        if (!b.banhoTipo) e.banhoTipo = 'Escolha o serviço desejado.';
+        if (!b.date) e.date = 'Informe a data.';
+        else if (b.date < t) e.date = 'Escolha uma data a partir de hoje.';
+        if (!b.turno) e.turno = 'Escolha um turno.';
+      }
+    }
+    if (step === 2) {
+      if (!b.petName.trim()) e.petName = 'Informe o nome do pet.';
+      if (!b.porte) e.porte = 'Escolha o porte.';
+    }
+    if (step === 3) {
+      if (!b.tutor.trim()) e.tutor = 'Informe seu nome.';
+      if (b.phone.replace(/\D/g, '').length < 10) e.phone = 'Informe um WhatsApp com DDD.';
+      if (b.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(b.email.trim())) e.email = 'Confira o e-mail.';
+    }
+    return e;
+  }
+
+  setB = patch => this.setState(s => {
+    const errors = { ...s.errors };
+    Object.keys(patch).forEach(k => delete errors[k]);
+    return { b: { ...s.b, ...patch }, errors };
+  });
+
+  scrollToCard() {
+    const el = this.cardRef.current;
+    if (!el) return;
+    const top = el.getBoundingClientRect().top;
+    if (top < 80) window.scrollTo({ top: window.scrollY + top - 96, behavior: 'smooth' });
+  }
+
+  finish() {
+    this.setState({ sent: true, errors: {}, protocol: 'OTTO-' + Math.floor(1000 + Math.random() * 9000) }, () => this.scrollToCard());
+  }
+
+  onFormSubmit = ev => {
+    ev.preventDefault();
+    const s = this.state;
+    if (this.single()) {
+      const e = { ...this.validate(1, s.b), ...this.validate(2, s.b), ...this.validate(3, s.b) };
+      if (Object.keys(e).length) return this.setState({ errors: e });
+      return this.finish();
+    }
+    const e = this.validate(s.step, s.b);
+    if (Object.keys(e).length) return this.setState({ errors: e });
+    if (s.step < 3) return this.setState({ step: s.step + 1, errors: {} }, () => this.scrollToCard());
+    this.finish();
+  };
+
+  book = svc => () => this.setState(s => s.sent
+    ? { sent: false, step: 1, errors: {}, b: { ...this.EMPTY, service: svc } }
+    : { b: { ...s.b, service: svc }, step: s.b.service === svc ? s.step : 1, errors: {} });
+
+  renderVals() {
+    const s = this.state, b = s.b;
+    const single = this.single();
+    const faqSingle = this.props.faqSingleOpen ?? true;
+
+    const chip = on => ({ bd: on ? '#4D311F' : '#C8B5A2', bg: on ? '#4D311F' : 'transparent', fg: on ? '#F8E6D0' : '#4D311F', checked: on ? 'true' : 'false' });
+    const chips = (opts, key) => opts.map(label => ({ label, ...chip(b[key] === label), select: () => this.setB({ [key]: label }) }));
+    const card = on => ({ bd: on ? '#4D311F' : '#C8B5A2', bg: on ? '#FFFFFF' : 'transparent', checked: on ? 'true' : 'false' });
+    const segBtn = id => ({ sel: s.flow === id ? 'true' : 'false', bg: s.flow === id ? '#F8E6D0' : 'transparent', fg: s.flow === id ? '#3E1D14' : '#F8E6D0', select: () => this.setState({ flow: id }) });
+
+    const faqOpen = {}, faqExp = {}, faqIcon = {}, faqT = {};
+    ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'].forEach(q => {
+      const o = !!s.faq[q];
+      faqOpen[q] = o; faqExp[q] = o ? 'true' : 'false'; faqIcon[q] = o ? '−' : '+';
+      faqT[q] = () => this.setState(st => ({ faq: faqSingle ? (st.faq[q] ? {} : { [q]: true }) : { ...st.faq, [q]: !st.faq[q] } }));
+    });
+
+    const n = this.tutorsData.length;
+    const tutors = this.tutorsData.map((t, i) => ({
+      ...t, active: i === s.tIdx, pressed: i === s.tIdx ? 'true' : 'false',
+      bg: i === s.tIdx ? '#F8E6D0' : 'transparent', select: () => this.setState({ tIdx: i })
+    }));
+
+    const has = {}, inv = {};
+    Object.keys(this.EMPTY).forEach(k => { has[k] = !!s.errors[k]; inv[k] = s.errors[k] ? 'true' : 'false'; });
+    const on = {};
+    ['checkIn', 'checkOut', 'date', 'petName', 'raca', 'obs', 'tutor', 'email'].forEach(k => { on[k] = e => this.setB({ [k]: e.target.value }); });
+    on.phone = e => this.setB({ phone: this.maskPhone(e.target.value) });
+
+    const nights = this.nights(b);
+    const summary = [];
+    if (b.service) summary.push({ k: 'Serviço', v: b.service === 'hosp' ? 'Hospedagem' : 'Banho e tosa' + (b.banhoTipo ? ' · ' + b.banhoTipo : '') });
+    if (b.service === 'hosp' && nights !== null) summary.push({ k: 'Período', v: nights === 0 ? this.fmtDate(b.checkIn) + ' · day care' : this.fmtDate(b.checkIn) + ' a ' + this.fmtDate(b.checkOut) + ' · ' + this.nightsText(nights) });
+    if (b.service === 'banho' && b.date) summary.push({ k: 'Data', v: this.fmtDate(b.date) + (b.turno ? ' · ' + b.turno.toLowerCase() : '') });
+    if (b.petName.trim()) summary.push({ k: 'Pet', v: [b.petName.trim(), b.porte ? 'porte ' + b.porte.split(' · ')[0].toLowerCase() : '', b.raca.trim()].filter(Boolean).join(' · ') });
+    if (b.obs.trim()) summary.push({ k: 'Observações', v: b.obs.trim() });
+    const summaryAll = [...summary, { k: 'Contato', v: [b.tutor.trim(), b.phone, b.email.trim()].filter(Boolean).join(' · ') }];
+    const waText = 'Olá! Fiz um pedido de agendamento pelo site (' + s.protocol + ').\n' + summaryAll.map(r => r.k + ': ' + r.v).join('\n');
+
+    const steps = ['Serviço', 'Pet', 'Seus dados'].map((label, i) => {
+      const k = i + 1, done = k < s.step, cur = k === s.step;
+      return {
+        label, num: k, bar: done || cur ? '#4D311F' : '#C8B5A2', fg: cur ? '#3E1D14' : done ? '#6C472C' : '#845639',
+        locked: k > s.step, cursor: done ? 'pointer' : 'default', current: cur ? 'step' : undefined,
+        go: () => { if (k < this.state.step) this.setState({ step: k, errors: {} }); }
+      };
+    });
+
+    return {
+      narrow: s.narrow, wideNav: !s.narrow, menuOpen: s.narrow && s.menuOpen,
+      menuExpanded: s.menuOpen ? 'true' : 'false', menuLabel: s.menuOpen ? 'Fechar' : 'Menu',
+      toggleMenu: () => this.setState(st => ({ menuOpen: !st.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      bookHosp: this.book('hosp'), bookBanho: this.book('banho'),
+      flowHosp: s.flow === 'hosp', flowBanho: s.flow === 'banho',
+      seg: { hosp: segBtn('hosp'), banho: segBtn('banho') },
+      faqOpen, faqExp, faqIcon, faqT,
+      tutors, current: this.tutorsData[s.tIdx], tCounter: (s.tIdx + 1) + ' / ' + n,
+      prevT: () => this.setState(st => ({ tIdx: (st.tIdx - 1 + n) % n })),
+      nextT: () => this.setState(st => ({ tIdx: (st.tIdx + 1) % n })),
+      cardRef: this.cardRef, onFormSubmit: this.onFormSubmit,
+      heroRef: this.heroRef, stageRef: this.stageRef, logoRef: this.logoRef, agendarRef: this.agendarRef,
+      showWaBtn: (this.props.showWhatsApp ?? true) && !!s.waOn, heroTextRef: this.heroTextRef, headerLogoRef: this.headerLogoRef, syncHero: this.syncHero,
+      formVisible: !s.sent, sent: s.sent, protocol: s.protocol, stepsMode: !single, steps,
+      showS1: single || s.step === 1, showS2: single || s.step === 2, showS3: single || s.step === 3,
+      showSummary: !single && s.step === 3 && summary.length > 0, summary, summaryAll,
+      canBack: !single && s.step > 1,
+      back: () => this.setState(st => ({ step: Math.max(1, st.step - 1), errors: {} }), () => this.scrollToCard()),
+      showStepHint: !single && s.step === 1,
+      isLast: single || s.step === 3, notLast: !single && s.step < 3,
+      b, on, has, inv, err: s.errors, today: this.today(), minOut: b.checkIn || this.today(),
+      svc: {
+        hosp: { ...card(b.service === 'hosp'), select: () => this.setB({ service: 'hosp' }) },
+        banho: { ...card(b.service === 'banho'), select: () => this.setB({ service: 'banho' }) }
+      },
+      isHosp: b.service === 'hosp', isBanho: b.service === 'banho',
+      hasNights: nights !== null, nightsLabel: nights !== null ? this.nightsText(nights) : '',
+      banhoOpts: chips(this.banhoOpts, 'banhoTipo'), turnoOpts: chips(this.turnoOpts, 'turno'), porteOpts: chips(this.porteOpts, 'porte'),
+      waLink: 'https://wa.me/5551991866773?text=' + encodeURIComponent(waText),
+      resetForm: () => this.setState({ sent: false, step: 1, errors: {}, b: { ...this.EMPTY } }),
+      showWa: this.props.showWhatsApp ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
