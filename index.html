@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Otto Life Pet · Hospedagem e banho e tosa em Venâncio Aires</title>
 <meta name="description" content="Hospedagem, day care e banho e tosa para cães em Venâncio Aires – RS. R. Gen. Osório, 705 – Aviação. Agende pelo site ou pelo WhatsApp (51) 99186-6773.">
-<link rel="icon" href="assets/otto-logo.jpg">
+<link rel="icon" href="otto-logo.jpg">
 <meta name="theme-color" content="#ECCDB1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
@@ -31,7 +31,7 @@ button,input,textarea{font-family:inherit}
 <header data-screen-label="Header" style="position:sticky;top:0;z-index:30;background:#ECCDB1;border-bottom:1px solid rgba(108,71,44,0.18)">
   <div style="max-width:1200px;margin:0 auto;padding:10px clamp(20px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:24px">
     <a ref="{{ headerLogoRef }}" href="#topo" aria-label="Otto Life Pet, voltar ao início" style="display:flex;flex:none;transition:opacity 220ms ease">
-      <img src="assets/otto-logo.jpg" alt="Otto Life Pet" style="width:56px;height:56px;border-radius:50%;object-fit:cover;display:block">
+      <img src="otto-logo.jpg" alt="Otto Life Pet" style="width:56px;height:56px;border-radius:50%;object-fit:cover;display:block">
     </a>
     <sc-if value="{{ wideNav }}" hint-placeholder-val="{{ true }}">
       <nav aria-label="Principal" style="display:flex;align-items:center;gap:clamp(18px,2.6vw,34px);font-size:15px;font-weight:500">
@@ -79,7 +79,7 @@ button,input,textarea{font-family:inherit}
   <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(48px,6vw,96px);align-items:center">
     <figure style="margin:0;display:flex;flex-direction:column;gap:14px;width:min(100%,460px);justify-self:center">
       <div style="aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#ECCDB1">
-        <image-slot id="inst-sobre-otto" src="assets/fotos/sobre-otto.jpg" shape="rect" placeholder="Foto: o Otto (4:5)"></image-slot>
+        <image-slot id="inst-sobre-otto" src="sobre-otto.jpg" shape="rect" placeholder="Foto: o Otto (4:5)"></image-slot>
       </div>
       <figcaption style="font-size:14px;color:#845639">O Otto, que dá nome à casa.</figcaption>
     </figure>
@@ -122,7 +122,7 @@ button,input,textarea{font-family:inherit}
 
     <article aria-labelledby="t-hosp" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,88px);align-items:center">
       <div style="justify-self:center;width:min(100%,480px);aspect-ratio:4/5;border-radius:999px 999px 28px 28px;overflow:hidden;background:#D9B593">
-        <image-slot id="inst-serv-hosp" src="assets/fotos/hero-pet.jpg" shape="rect" placeholder="Foto: hospedagem (4:5)"></image-slot>
+        <image-slot id="inst-serv-hosp" src="hero-pet.jpg" shape="rect" placeholder="Foto: hospedagem (4:5)"></image-slot>
       </div>
       <div style="display:flex;flex-direction:column;gap:26px;max-width:520px">
         <div style="display:flex;flex-direction:column;gap:14px">
@@ -171,7 +171,7 @@ button,input,textarea{font-family:inherit}
         <a href="#agendar" onClick="{{ bookBanho }}" style="align-self:flex-start;min-height:52px;padding:0 28px;border-radius:999px;background:#D16A46;color:#FFFFFF;font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:background 180ms ease" style-hover="background:#B95738;color:#FFFFFF">Agendar banho e tosa</a>
       </div>
       <div style="justify-self:center;width:min(100%,480px);aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#D9B593">
-        <image-slot id="inst-serv-banho" src="assets/fotos/servico-banho.jpg" shape="rect" placeholder="Foto: banho e tosa (4:5)"></image-slot>
+        <image-slot id="inst-serv-banho" src="servico-banho.jpg" shape="rect" placeholder="Foto: banho e tosa (4:5)"></image-slot>
       </div>
     </article>
   </div>
@@ -253,27 +253,27 @@ button,input,textarea{font-family:inherit}
     </div>
     <div style="columns:3 160px;column-gap:20px">
       <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
-        <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-recepcao" src="assets/fotos/espaco-recepcao.jpg" shape="rect" placeholder="Foto: recepção"></image-slot></div>
+        <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-recepcao" src="espaco-recepcao.jpg" shape="rect" placeholder="Foto: recepção"></image-slot></div>
         <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Recepção</figcaption>
       </figure>
       <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
-        <div style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-brincadeiras" src="assets/fotos/espaco-brincadeiras.jpg" shape="rect" placeholder="Foto: área de brincadeiras"></image-slot></div>
+        <div style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-brincadeiras" src="espaco-brincadeiras.jpg" shape="rect" placeholder="Foto: área de brincadeiras"></image-slot></div>
         <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Área de brincadeiras</figcaption>
       </figure>
       <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
-        <div style="aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-acomodacoes" src="assets/fotos/espaco-acomodacoes.jpg" shape="rect" placeholder="Foto: acomodações"></image-slot></div>
+        <div style="aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-acomodacoes" src="espaco-acomodacoes.jpg" shape="rect" placeholder="Foto: acomodações"></image-slot></div>
         <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Acomodações da hospedagem</figcaption>
       </figure>
       <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
-        <div style="aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-banho" src="assets/fotos/espaco-banho.jpg" shape="rect" placeholder="Foto: sala de banho e tosa"></image-slot></div>
+        <div style="aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-banho" src="espaco-banho.jpg" shape="rect" placeholder="Foto: sala de banho e tosa"></image-slot></div>
         <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Sala de banho e tosa</figcaption>
       </figure>
       <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
-        <div style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-externa" src="assets/fotos/espaco-externa.jpg" shape="rect" placeholder="Foto: área externa"></image-slot></div>
+        <div style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-externa" src="espaco-externa.jpg" shape="rect" placeholder="Foto: área externa"></image-slot></div>
         <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Área externa</figcaption>
       </figure>
       <figure style="margin:0 0 20px;break-inside:avoid;display:flex;flex-direction:column;gap:10px">
-        <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-descanso" src="assets/fotos/espaco-descanso.jpg" shape="rect" placeholder="Foto: cantinho do descanso"></image-slot></div>
+        <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#ECCDB1"><image-slot id="inst-esp-descanso" src="espaco-descanso.jpg" shape="rect" placeholder="Foto: cantinho do descanso"></image-slot></div>
         <figcaption style="font-size:14px;font-weight:600;color:#4D311F">Cantinho do descanso</figcaption>
       </figure>
     </div>
@@ -376,7 +376,7 @@ button,input,textarea{font-family:inherit}
         <span style="font-size:14px;color:#ECCDB1">Prefere conversar?</span>
         <a href="https://wa.me/5551991866773?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20agendamento." target="_blank" rel="noopener" style="align-self:flex-start;max-width:100%;display:flex;align-items:center;gap:14px;padding:10px 24px 10px 10px;border-radius:999px;background:#F8E6D0;color:#3E1D14;box-shadow:0 12px 32px rgba(30,14,8,0.22);transition:background 180ms ease,transform 180ms ease" style-hover="background:#FFFFFF;color:#3E1D14;transform:translateY(-2px)">
           <span style="width:48px;height:48px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;flex:none">
-            <img src="assets/whatsapp-glyph.svg" alt="WhatsApp" width="26" height="26" style="display:block;width:26px;height:26px">
+            <img src="whatsapp-glyph.svg" alt="WhatsApp" width="26" height="26" style="display:block;width:26px;height:26px">
           </span>
           <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
             <span style="font-size:16px;font-weight:600;line-height:1.25">Clique aqui para conversarmos</span>
@@ -617,7 +617,7 @@ button,input,textarea{font-family:inherit}
   <div style="max-width:1200px;margin:0 auto;padding:56px clamp(20px,4vw,40px) 40px;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:18px">
-        <img src="assets/otto-logo.jpg" alt="Otto Life Pet" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:block">
+        <img src="otto-logo.jpg" alt="Otto Life Pet" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:block">
         <div style="display:flex;flex-direction:column;gap:4px">
           <span style="font-family:'DM Serif Display',Georgia,serif;font-size:24px;line-height:1.1;color:#F8E6D0">Otto Life Pet</span>
           <span style="font-size:14px;color:#ECCDB1">Hospedagem e banho e tosa em Venâncio Aires – RS</span>
@@ -649,11 +649,11 @@ class Component extends DCLogic {
   cardRef = React.createRef();
 
   tutorsData = [
-    { id: 'pacoca', photo: 'assets/fotos/dep-pacoca.jpg', avatar: 'assets/fotos/dep-pacoca-avatar.jpg', dog: 'Paçoca', meta: 'SRD · 4 anos', tutor: 'Marina Albuquerque', role: 'Tutora', service: 'Hospedagem',
+    { id: 'pacoca', photo: 'dep-pacoca.jpg', avatar: 'dep-pacoca-avatar.jpg', dog: 'Paçoca', meta: 'SRD · 4 anos', tutor: 'Marina Albuquerque', role: 'Tutora', service: 'Hospedagem',
       quote: 'Viajei por dez dias e recebi fotos do Paçoca todas as manhãs. Quando voltei, ele estava calmo, limpinho e cheio de energia.' },
-    { id: 'bento', photo: 'assets/fotos/dep-bento.jpg', avatar: 'assets/fotos/dep-bento-avatar.jpg', dog: 'Bento', meta: 'Dachshund · 9 anos', tutor: 'Rafael Monteiro', role: 'Tutor', service: 'Banho e tosa',
+    { id: 'bento', photo: 'dep-bento.jpg', avatar: 'dep-bento-avatar.jpg', dog: 'Bento', meta: 'Dachshund · 9 anos', tutor: 'Rafael Monteiro', role: 'Tutor', service: 'Banho e tosa',
       quote: 'O Bento sempre teve medo do soprador. Na Otto fizeram tudo com calma e com pausas, e hoje ele entra na sala de banho abanando o rabo.' },
-    { id: 'mel', photo: 'assets/fotos/dep-mel.jpg', avatar: 'assets/fotos/dep-mel-avatar.jpg', dog: 'Mel', meta: 'Golden Retriever · 2 anos', tutor: 'Júlia Tavares', role: 'Tutora', service: 'Day care e banho',
+    { id: 'mel', photo: 'dep-mel.jpg', avatar: 'dep-mel-avatar.jpg', dog: 'Mel', meta: 'Golden Retriever · 2 anos', tutor: 'Júlia Tavares', role: 'Tutora', service: 'Day care e banho',
       quote: 'Deixo a Mel no day care duas vezes por semana e aproveito para marcar o banho no mesmo dia. Ela volta cansada, cheirosa e feliz.' }
   ];
   banhoOpts = ['Só banho', 'Banho + tosa higiênica', 'Banho + tosa na máquina', 'Banho + tosa na tesoura'];

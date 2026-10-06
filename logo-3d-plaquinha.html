@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo 3D · Plaquinha de coleira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": { "three": "https://unpkg.com/three@0.184.0/build/three.module.js" },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT"
+  }
+}
+</script>
+<style>
+html,body{margin:0;height:100%;background:transparent;overflow:hidden}
+canvas{display:block;width:100%;height:100%}
+#fallback{position:absolute;left:0;right:0;top:0;bottom:0;display:none;align-items:center;justify-content:center}
+#fallback img{max-width:84%;max-height:80%}
+</style>
+</head>
+<body>
+<div id="fallback"><img src="otto-logo-transparente.png" alt=""></div>
+<script type="module">
+import * as THREE from 'three';
+
+const state = { p: 0, px: 0, py: 0 };
+let visible = true;
+// Celulares e tablets: sombra, texturas e resolução mais leves
+const small = Math.min(screen.width, screen.height) < 700 || matchMedia('(pointer: coarse)').matches;
+const region = { top: 0, bottom: 0 };
+let onLayout = () => {};
+addEventListener('message', e => {
+  const d = e.data || {};
+  if (d.type === 'otto-scroll') state.p = Math.min(1, Math.max(0, +d.p || 0));
+  if (d.type === 'otto-pointer') { state.px = +d.x || 0; state.py = +d.y || 0; }
+  if (d.type === 'otto-layout') { region.top = +d.top || 0; region.bottom = +d.bottom || 0; onLayout(); }
+  if (d.type === 'otto-visible') visible = !!d.on;
+});
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const area = () => {
+  const h = innerHeight, ok = region.bottom > region.top + 80;
+  return { top: ok ? region.top : 0, bottom: ok ? region.bottom : h };
+};
+
+let renderer = null;
+try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); } catch (e) { renderer = null; }
+if (renderer) init().catch(err => { console.error(err); fallback(); }); else fallback();
+
+function fallback() {
+  if (renderer) renderer.domElement.remove();
+  const f = document.getElementById('fallback');
+  f.style.display = 'flex';
+  onLayout = () => { const a = area(); f.style.top = a.top + 'px'; f.style.bottom = (innerHeight - a.bottom) + 'px'; };
+  onLayout(); addEventListener('resize', onLayout);
+}
+
+async function init() {
+  const fonts = Promise.race([
+    Promise.all(['400 150px "DM Serif Display"', '700 112px "DM Sans"', '500 70px "DM Sans"'].map(f => document.fonts.load(f))),
+    new Promise(r => setTimeout(r, 2500))
+  ]).catch(() => {});
+  const [data] = await Promise.all([fetch('otto-logo-3d.json').then(r => r.json()), fonts]);
+
+  renderer.setPixelRatio(Math.min(devicePixelRatio, small ? 1.5 : 2));
+  renderer.setClearColor(0x000000, 0);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.VSMShadowMap;
+  document.body.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(24, 1, 10, 30000);
+
+  // Estúdio simples para os reflexos do metal
+  const ec = document.createElement('canvas'); ec.width = 1024; ec.height = 512;
+  const eg = ec.getContext('2d');
+  const gr = eg.createLinearGradient(0, 0, 0, 512);
+  gr.addColorStop(0, '#fffaf2'); gr.addColorStop(0.42, '#f2dfca'); gr.addColorStop(0.52, '#c9a17f'); gr.addColorStop(1, '#3d281b');
+  eg.fillStyle = gr; eg.fillRect(0, 0, 1024, 512);
+  const soft = (x, y, r, a) => { const g = eg.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(255,255,255,${a})`); g.addColorStop(1, 'rgba(255,255,255,0)'); eg.fillStyle = g; eg.fillRect(x - r, y - r, r * 2, r * 2); };
+  soft(380, 150, 150, 1); soft(820, 190, 110, 0.75); soft(120, 230, 90, 0.5);
+  const envTex = new THREE.CanvasTexture(ec);
+  envTex.mapping = THREE.EquirectangularReflectionMapping; envTex.colorSpace = THREE.SRGBColorSpace;
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromEquirectangular(envTex).texture;
+  scene.environmentIntensity = 0.85;
+  envTex.dispose(); pmrem.dispose();
+
+  // Medidas da plaquinha (mesma unidade do vetor do logo: 968 × 626)
+  const X0 = -594, X1 = 594, Y0 = -418, Y1 = 480, CR = 170;
+  const HOLE = { x: 0, y: 400, r: 28 };
+  const PD = 26, PB = 7, FZ = PD / 2 + PB;
+  const LOGO_DY = 20;
+
+  const roundRect = (x0, y0, x1, y1, r, notch) => {
+    const s = new THREE.Shape();
+    s.moveTo(x0 + r, y0); s.lineTo(x1 - r, y0); s.absarc(x1 - r, y0 + r, r, -Math.PI / 2, 0, false);
+    s.lineTo(x1, y1 - r); s.absarc(x1 - r, y1 - r, r, 0, Math.PI / 2, false);
+    if (notch) {
+      s.lineTo(notch.x + notch.r, y1); s.lineTo(notch.x + notch.r, notch.y);
+      s.absarc(notch.x, notch.y, notch.r, 0, Math.PI, true);
+      s.lineTo(notch.x - notch.r, y1);
+    }
+    s.lineTo(x0 + r, y1); s.absarc(x0 + r, y1 - r, r, Math.PI / 2, Math.PI, false);
+    s.lineTo(x0, y0 + r); s.absarc(x0 + r, y0 + r, r, Math.PI, Math.PI * 1.5, false);
+    return s;
+  };
+  const circle = (c, r) => { const p = new THREE.Path(); p.absarc(c.x, c.y, r, 0, Math.PI * 2, true); return p; };
+
+  const bronze = new THREE.MeshStandardMaterial({ name: 'bronze', color: '#a7784e', metalness: 0.85, roughness: 0.32 });
+  const ringMat = new THREE.MeshStandardMaterial({ name: 'argola', color: '#b88b5e', metalness: 0.95, roughness: 0.22 });
+  const enamelMat = new THREE.MeshPhysicalMaterial({ name: 'esmalte', color: '#F6E6D2', roughness: 0.4, metalness: 0, clearcoat: 0.8, clearcoatRoughness: 0.2 });
+  const logoFace = new THREE.MeshPhysicalMaterial({ name: 'logo-frente', color: '#86381c', roughness: 0.42, metalness: 0, clearcoat: 0.5, clearcoatRoughness: 0.3 });
+  const logoSide = new THREE.MeshStandardMaterial({ name: 'logo-lateral', color: '#5a2312', roughness: 0.55, metalness: 0 });
+
+  const asm = new THREE.Group(); asm.name = 'plaquinha';
+
+  const plateShape = roundRect(X0, Y0, X1, Y1, CR); plateShape.holes.push(circle(HOLE, HOLE.r));
+  const plateGeo = new THREE.ExtrudeGeometry(plateShape, { depth: PD, curveSegments: 32, bevelEnabled: true, bevelThickness: PB, bevelSize: PB, bevelOffset: -PB, bevelSegments: 5 });
+  plateGeo.translate(0, 0, -PD / 2);
+  const plate = new THREE.Mesh(plateGeo, bronze); plate.name = 'placa'; plate.castShadow = true; asm.add(plate);
+
+  // Moldura de metal em relevo + esmalte creme rebaixado + logo marrom em relevo
+  const IN = 30, NOTCH = { x: 0, y: HOLE.y, r: 44 };
+  const inlay = roundRect(X0 + IN, Y0 + IN, X1 - IN, Y1 - IN, CR - IN, NOTCH);
+  const frameShape = roundRect(X0 + PB + 1, Y0 + PB + 1, X1 - PB - 1, Y1 - PB - 1, CR - PB - 1);
+  frameShape.holes.push(inlay, circle(HOLE, HOLE.r));
+  const frameGeo = new THREE.ExtrudeGeometry(frameShape, { depth: 4, curveSegments: 32, bevelEnabled: true, bevelThickness: 1.5, bevelSize: 1.5, bevelOffset: -1.5, bevelSegments: 2 });
+  frameGeo.translate(0, 0, FZ + 1);
+  const frame = new THREE.Mesh(frameGeo, bronze); frame.name = 'moldura'; asm.add(frame);
+
+  const enamel = new THREE.Mesh(new THREE.ShapeGeometry(inlay, 32), enamelMat);
+  enamel.name = 'esmalte'; enamel.position.z = FZ + 0.4; asm.add(enamel);
+
+  const V = a => a.map(([x, y]) => new THREE.Vector2(x, y));
+  const toShape = s => { const sh = new THREE.Shape(V(s.outer)); s.holes.forEach(h => sh.holes.push(new THREE.Path(V(h)))); return sh; };
+  const logoGeo = new THREE.ExtrudeGeometry(data.shapes.map(toShape), { depth: 8, curveSegments: 1, bevelEnabled: true, bevelThickness: 1.6, bevelSize: 1.1, bevelOffset: -1.1, bevelSegments: 2 });
+  logoGeo.translate(0, LOGO_DY, FZ + 1);
+  const logo = new THREE.Mesh(logoGeo, [logoFace, logoSide]); logo.name = 'logo'; logo.castShadow = true; asm.add(logo);
+
+  // Verso gravado: endereço, telefone e Instagram
+  const CW = 2048, CH = Math.round(CW * (Y1 - Y0) / (X1 - X0));
+  const makeCanvas = () => { const c = document.createElement('canvas'); c.width = CW; c.height = CH; return c; };
+  const dogPath = (s, ox, oy) => {
+    const p = new Path2D();
+    data.shapes.slice(0, 4).forEach(sh => [sh.outer, ...sh.holes].forEach(poly => {
+      poly.forEach(([x, y], i) => { const X = ox + (x - 1.5) * s, Y = oy + (313 - y) * s; i ? p.lineTo(X, Y) : p.moveTo(X, Y); });
+      p.closePath();
+    }));
+    return p;
+  };
+  const items = [
+    { dog: 190 }, { gap: 46 },
+    { text: 'Otto Life Pet', font: '400 150px "DM Serif Display", Georgia, serif', h: 150 }, { gap: 64 },
+    { text: 'R. Gen. Osório, 705 – Aviação', font: '500 70px "DM Sans", Arial, sans-serif', h: 70 }, { gap: 22 },
+    { text: 'Venâncio Aires – RS', font: '500 70px "DM Sans", Arial, sans-serif', h: 70 }, { gap: 64 },
+    { text: '(51) 99186-6773', font: '700 112px "DM Sans", Arial, sans-serif', h: 112 }, { gap: 30 },
+    { text: '@otto.life.pet', font: '500 70px "DM Sans", Arial, sans-serif', h: 70 }
+  ];
+  const total = items.reduce((a, it) => a + (it.dog || it.gap || it.h), 0);
+  const draw = (c, base, ink) => {
+    const g = c.getContext('2d');
+    g.fillStyle = base; g.fillRect(0, 0, CW, CH);
+    g.fillStyle = ink; g.textAlign = 'center'; g.textBaseline = 'top';
+    let y = 250 + (CH - 120 - 250 - total) / 2;
+    for (const it of items) {
+      if (it.dog) { g.fill(dogPath(it.dog / 278, CW / 2, y), 'evenodd'); y += it.dog; }
+      else if (it.gap) y += it.gap;
+      else { g.font = it.font; g.fillText(it.text, CW / 2, y); y += it.h; }
+    }
+    return c;
+  };
+  const texCanvas = (base, ink) => {
+    const c = draw(makeCanvas(), base, ink);
+    if (!small) return c;
+    const s = document.createElement('canvas'); s.width = CW / 2; s.height = Math.round(CH / 2);
+    s.getContext('2d').drawImage(c, 0, 0, s.width, s.height); return s;
+  };
+  const colorTex = new THREE.CanvasTexture(texCanvas('#a7784e', '#3b2012')); colorTex.colorSpace = THREE.SRGBColorSpace;
+  const bumpTex = new THREE.CanvasTexture(texCanvas('#ffffff', '#000000'));
+  const roughTex = new THREE.CanvasTexture(texCanvas('#4d4d4d', '#cccccc'));
+  [colorTex, bumpTex, roughTex].forEach(t => {
+    t.repeat.set(1 / (X1 - X0), 1 / (Y1 - Y0)); t.offset.set(-X0 / (X1 - X0), -Y0 / (Y1 - Y0));
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  });
+  const backMat = new THREE.MeshStandardMaterial({ name: 'verso-gravado', map: colorTex, bumpMap: bumpTex, bumpScale: 3, roughnessMap: roughTex, roughness: 1, metalness: 0.85 });
+  const backShape = roundRect(X0 + PB, Y0 + PB, X1 - PB, Y1 - PB, CR - PB); backShape.holes.push(circle(HOLE, HOLE.r + 2));
+  const back = new THREE.Mesh(new THREE.ShapeGeometry(backShape, 32), backMat);
+  back.name = 'verso'; back.rotation.y = Math.PI; back.position.z = -(FZ + 0.3); asm.add(back);
+
+  // Argola dupla passando pelo furo
+  const RR = 92, RT = 9.5, ringY = HOLE.y + HOLE.r - RT + RR;
+  const ringGeo = new THREE.TorusGeometry(RR, RT, 24, 120);
+  [-9, 9].forEach(dx => { const r = new THREE.Mesh(ringGeo, ringMat); r.name = 'argola'; r.rotation.y = Math.PI / 2; r.position.set(dx, ringY, 0); r.castShadow = true; asm.add(r); });
+
+  const PIVOT = ringY + RR - 4;
+  const hang = new THREE.Group(); hang.position.y = PIVOT; scene.add(hang);
+  const twist = new THREE.Group(); hang.add(twist);
+  asm.position.y = -PIVOT; twist.add(asm);
+
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(8000, 4000), new THREE.ShadowMaterial({ opacity: 0.18 }));
+  ground.name = 'sombra'; ground.rotation.x = -Math.PI / 2; ground.position.y = Y0 - 80; ground.receiveShadow = true;
+  scene.add(ground);
+
+  scene.add(new THREE.HemisphereLight('#fff4e8', '#b08a68', 0.55));
+  const key = new THREE.DirectionalLight('#ffffff', 1.25); key.position.set(-650, 520, 1000); scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffd8b0', 0.9); rim.position.set(600, 380, -900); scene.add(rim);
+  const topL = new THREE.DirectionalLight('#ffffff', 0.6); topL.position.set(-160, 1800, 300); topL.castShadow = true;
+  Object.assign(topL.shadow.camera, { left: -1000, right: 1000, top: 900, bottom: -900, near: 200, far: 5000 });
+  topL.shadow.mapSize.set(small ? 1024 : 2048, small ? 1024 : 2048); topL.shadow.radius = small ? 8 : 16; topL.shadow.blurSamples = small ? 10 : 20; topL.shadow.bias = -0.0004;
+  scene.add(topL);
+
+  const OW = X1 - X0, OTOP = ringY + RR + RT, OH = OTOP - Y0, CY = (OTOP + Y0) / 2;
+  const resize = () => {
+    const w = innerWidth, h = innerHeight;
+    renderer.setSize(w, h, false);
+    const a = area(), rh = a.bottom - a.top;
+    const pxH = Math.max(80, Math.min(rh * 0.9, (w * (w < 640 ? 0.8 : 0.62)) / (OW / OH)));
+    const t = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    const dist = (OH * h) / (2 * t * pxH);
+    camera.aspect = w / h;
+    camera.position.set(0, CY + dist * 0.08, dist);
+    camera.lookAt(0, CY, 0);
+    camera.near = dist * 0.1; camera.far = dist * 4;
+    camera.setViewOffset(w, h, 0, h / 2 - (a.top + rh * 0.5), w, h);
+    camera.updateProjectionMatrix();
+  };
+  onLayout = resize;
+  addEventListener('resize', resize);
+  resize();
+
+  // Física: giro (frente → verso) com mola; balanço de pêndulo empurrado pela rolagem e pelo mouse
+  let tw = reduce ? 0 : -1.5, twV = 0, sw = reduce ? 0 : 0.14, swV = 0, rx = 0.05;
+  let lastP = state.p, lastPx = state.px;
+  const t0 = performance.now(); let last = t0;
+  const ease = k => 1 - Math.pow(1 - k, 3);
+  const sstep = v => { const x = Math.min(1, Math.max(0, v)); return x * x * (3 - 2 * x); };
+  const W0 = 2 * Math.PI * 0.6;
+  const frameLoop = now => {
+    const dt = Math.min(0.04, Math.max(0.001, (now - last) / 1000)); last = now;
+    const t = (now - t0) / 1000, p = state.p;
+    const dp = (p - lastP) / dt; lastP = p;
+    const dpx = (state.px - lastPx) / dt; lastPx = state.px;
+    const intro = reduce ? 1 : ease(Math.min(1, t / 1.2));
+
+    const twT = sstep((p - 0.08) / 0.8) * Math.PI + state.px * 0.22;
+    const F = reduce ? 0 : (-dp * 3 - dpx * 0.35 + Math.sin(t * 0.9) * 0.06);
+    for (let i = 0; i < 2; i++) {
+      const h = dt / 2;
+      if (reduce) { tw = twT; } else { twV += (36 * (twT - tw) - 7.5 * twV) * h; tw += twV * h; }
+      swV += (-(W0 * W0) * Math.sin(sw) - 1.4 * swV + F) * h; sw += swV * h;
+    }
+    sw = Math.max(-0.45, Math.min(0.45, sw));
+    rx += ((0.05 + state.py * 0.08) - rx) * (1 - Math.exp(-dt * 4));
+
+    hang.rotation.set(rx, 0, sw);
+    twist.rotation.y = tw;
+    hang.position.y = PIVOT + (reduce ? 0 : Math.sin(t * 1.1) * 6) + (1 - intro) * 90;
+    hang.scale.setScalar((0.9 + 0.1 * intro) * (1 - p * 0.08));
+
+    renderer.render(scene, camera);
+  };
+  // Fora da tela, para de desenhar (economiza bateria no celular)
+  const loop = now => {
+    if (visible) frameLoop(now); else { last = now; lastP = state.p; lastPx = state.px; }
+    requestAnimationFrame(loop);
+  };
+  frameLoop(performance.now());
+  requestAnimationFrame(loop);
+  setInterval(() => { if (visible && performance.now() - last > 300) frameLoop(performance.now()); }, 120);
+}
+</script>
+</body>
+</html>
