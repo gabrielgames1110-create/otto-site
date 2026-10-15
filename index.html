@@ -131,7 +131,6 @@ dc-t{display:contents}
         <span style="font-size:13px;font-weight:600;letter-spacing:0.06em;color:#6C472C">SERVIÇOS</span>
         <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1;letter-spacing:-0.02em;color:#3E1D14;text-wrap:balance">A experiência que o seu pet merece ter!</h2>
       </div>
-      <p style="margin:0;max-width:380px;font-size:16px;line-height:1.55;color:#6C472C;text-wrap:pretty">Valores sob consulta: variam conforme porte, pelagem e período. Respondemos cada pedido com o orçamento.</p>
     </div>
 
     <article aria-labelledby="t-hosp" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,88px);align-items:center">
@@ -224,7 +223,7 @@ dc-t{display:contents}
         <dc-if data-if="pairs.1.active" style="display:none">
           <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,2vw,24px)">
             <figure style="margin:0;position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:#ECCDB1" data-b="[[&quot;style&quot;,&quot;margin:0;position:relative;aspect-ratio:{{pairs.1.ratio}};border-radius:24px;overflow:hidden;background:#ECCDB1&quot;]]">
-              <img src="ad-golden-antes.webp" alt="Antes, na chegada" width="1200" height="1600" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover">
+              <img src="ad-golden-antes-v2.webp" alt="Antes, na chegada" width="1200" height="1600" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover">
               <figcaption style="position:absolute;top:14px;left:14px;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;pointer-events:none;background:#F8E6D0;color:#3E1D14">Antes</figcaption>
             </figure>
             <figure style="margin:0;position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:#ECCDB1" data-b="[[&quot;style&quot;,&quot;margin:0;position:relative;aspect-ratio:{{pairs.1.ratio}};border-radius:24px;overflow:hidden;background:#ECCDB1&quot;]]">
@@ -473,7 +472,7 @@ class Component extends DCLogic {
   // Pares de fotos: antes (na chegada) e depois. name/detail são opcionais.
   pairsData = [
     { id: 'lulu', before: 'ad-lulu-antes.webp', after: 'ad-lulu-depois.webp', ratio: '15/16', name: '', detail: '' },
-    { id: 'golden', before: 'ad-golden-antes.webp', after: 'ad-golden-depois.webp', ratio: '3/4', name: '', detail: '' },
+    { id: 'golden', before: 'ad-golden-antes-v2.webp', after: 'ad-golden-depois.webp', ratio: '3/4', name: '', detail: '' },
     { id: 'spitz', before: 'ad-spitz-antes.webp', after: 'ad-spitz-depois.webp', ratio: '3/4', name: '', detail: '' },
     { id: 'pelolongo', before: 'ad-pelolongo-antes.webp', after: 'ad-pelolongo-depois.webp', ratio: '6/5', name: '', detail: '' }
   ];
