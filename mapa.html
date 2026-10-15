@@ -31,7 +31,7 @@ const pos = [-29.6051, -52.1990];
 // No celular, um dedo rola a página; o mapa aproxima com pinça
 const map = L.map('map', { scrollWheelZoom: false, dragging: !L.Browser.mobile }).setView(pos, 16);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(map);
-const icon = L.divIcon({ className: 'otto-pin', html: '<img src="otto-logo.jpg" alt="">', iconSize: [56, 64], iconAnchor: [28, 64], popupAnchor: [0, -60] });
+const icon = L.divIcon({ className: 'otto-pin', html: '<img src="otto-logo.webp" alt="">', iconSize: [56, 64], iconAnchor: [28, 64], popupAnchor: [0, -60] });
 const dest = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent('R. Gen. Osório, 705 - Aviação, Venâncio Aires - RS, 95800-000');
 L.marker(pos, { icon, title: 'Otto Life Pet', alt: 'Otto Life Pet' }).addTo(map)
   .bindPopup('<strong>Otto Life Pet</strong>R. Gen. Osório, 705 – Aviação<br>Venâncio Aires – RS<br><a href="' + dest + '" target="_blank" rel="noopener">Como chegar ↗</a>');
